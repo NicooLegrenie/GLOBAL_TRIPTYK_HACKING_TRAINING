@@ -1,0 +1,24 @@
+//base variables
+$base-color: #0893c8;
+$secondary-color:#34495e;
+$font-family:'Catamaran', sans-serif;
+
+//font-color
+$label-color: black;
+$label-fsize: 14px;
+$button-color:#ffffff;
+$title-white:#ffffff;
+$stat-color:#F89200;
+
+$input-fsize: $label-fsize;
+$button-fsize: 12px;
+$element-color: $base-color;
+
+$link-color: $base-color;
+
+//mixin base variables
+$lighten-percent:1%;
+$blur: 3px;
+$shadow-color: rgba(52,73,94,0.5);
+
+$z-index: 1;

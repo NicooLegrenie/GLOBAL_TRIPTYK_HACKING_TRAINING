@@ -1,0 +1,69 @@
+form{
+    padding:20px;
+    & > *{
+        display: block;
+    }
+
+    h2{
+        text-align:center;
+        margin:0;
+        color: $secondary-color;
+    }
+    label{
+        @include material-label($label-fsize);
+    }
+    input[type="name"],input[type="email"], input[type="password"], input[type="search"], input[type="text"]{
+        @include material-input($input-fsize, $element-color);
+        @include border-radius(0px);
+    }
+    select{
+        @include material-input($input-fsize, $element-color);
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-top:1px;
+        &:not([multiple]) {
+            appearance: none;
+            background-position: right 50%;
+            background-repeat: no-repeat;
+            background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%20%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%20%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2214px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2014%2012%22%20enable-background%3D%22new%200%200%2014%2012%22%20xml%3Aspace%3D%22preserve%22%3E%20%3Cpolygon%20points%3D%223.862%2C7.931%200%2C4.069%207.725%2C4.069%20%22/%3E%3C/svg%3E);
+            padding-right: 1.5em;
+            
+        }
+    }
+    button{
+        @include material-button($button-color, $base-color, $button-fsize);
+        display: inline-block;
+        &:hover{
+            @include material-shadow($blur, $shadow-color);
+        }
+    }
+    p{
+        a{
+            color:$link-color;
+        }
+    }
+    & > a{
+        @include material-link($link-color);
+        display: inline-block;
+    }
+}
+form.formWhite{
+    width:80%;
+    background:#fff;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    max-width: 380px;
+    @include material-shadow($blur, $shadow-color);
+}
+.add-user-member{
+    padding:10px;
+    display: flex;
+    flex:row wrap;
+    justify-content:space-between;
+    div{
+        margin-right:20px;
+    }
+}

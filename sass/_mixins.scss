@@ -1,0 +1,139 @@
+@mixin reset{
+    margin:0;
+    padding:0;
+}
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -webkit-flex:  $values;
+    -ms-flex:  $values;
+    flex:  $values;
+}
+@mixin order($val) {
+    -webkit-box-ordinal-group: $val;  
+    -moz-box-ordinal-group: $val;     
+    -ms-flex-order: $val;     
+    -webkit-order: $val;  
+    order: $val;
+}
+@mixin gradiant-lighter ($color, $direction,  $lighten-percent){
+    background: $color; 
+    background:  -moz-linear-gradient($direction, $color 0%, lighten($color, $lighten-percent) 100%); 
+    background:  -webkit-linear-gradient($direction, $color 0%, lighten($color, $lighten-percent) 100%);
+    background:  linear-gradient(to $direction, lighten($color, $lighten-percent) 0%, $color 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color', endColorstr='lighten($color, $lighten-percent)',GradientType=0 ); 
+}
+@mixin gradiant-lighter-image ($color, $direction,  $lighten-percent){
+    background: $color; 
+    background: url(../images/material-bg.png) top right no-repeat, -moz-linear-gradient($direction, $color 0%, lighten($color, $lighten-percent) 100%); 
+    background: url(../images/material-bg.png) top right no-repeat, -webkit-linear-gradient($direction, $color 0%, lighten($color, $lighten-percent) 100%);
+    background: url(../images/material-bg.png) top right no-repeat, linear-gradient(to $direction, lighten($color, $lighten-percent) 0%, $color 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color', endColorstr='lighten($color, $lighten-percent)',GradientType=0 ); 
+}
+@mixin border-radius($border-radius){
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+@mixin placeholder($element-color, $element-percent){
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: lighten($element-color, $element-percent);
+      }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: lighten($element-color, $element-percent);
+      }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: lighten($element-color, $element-percent);
+      }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: lighten($element-color, $element-percent);
+      }
+}
+@mixin material-label($label-fsize){
+    color: $label-color;
+    font-size: $label-fsize;
+    margin:0;
+    padding-top: $label-fsize * 1.6;
+    padding-bottom:$label-fsize * 0.8;
+}
+@mixin material-input($input-fsize, $element-color){
+        background-color:transparent;
+        font-size: $input-fsize * 1.4;
+        border:0;
+        padding-bottom: 8px;
+        border-bottom:1px solid $element-color;
+        margin-bottom:1px;
+        width:100%;
+        &:focus{
+            outline:none;
+            border-bottom:2px solid $element-color;
+            color: $element-color;
+            caret-color: $element-color;
+            margin-bottom:0px;
+        }
+        @include placeholder ($element-color, 30%);  
+}
+@mixin material-button($button-color, $base-color, $button-fsize){
+    @include gradiant-lighter($base-color, top,  $lighten-percent);
+    color:$button-color;
+    border:0;
+    text-transform: uppercase;
+    height: $button-fsize * 3;
+    margin-top: $button-fsize * 0.8;
+    padding:0 ($button-fsize / 12) * 16 ;
+    @include border-radius(2px);
+    font-size:$button-fsize;
+}
+@mixin material-link($link-color){
+    height: 36px;
+    color:$link-color;
+    text-transform: uppercase;
+    padding:0 16px;
+    text-decoration: none;
+    margin-top: $label-fsize * 0.8;
+    line-height: 36px;
+    font-size:12px;
+}
+@mixin material-shadow($blur, $shadow-color){
+    -webkit-box-shadow: 0px 0px $blur 0px $shadow-color;
+    -moz-box-shadow: 0px 0px $blur 0px $shadow-color;
+    box-shadow: 0px 0px $blur 0px $shadow-color;
+}
+@mixin table(){
+    background:#ffffff;
+    min-height: 235px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+        transition: all 0.5s ease-in-out;
+    }
+}
+@mixin title($fcolor){
+    font-size:16px;
+    font-weight: lighter;
+    color: $fcolor;
+}
+@mixin scrollbar{
+    &::-webkit-scrollbar-track
+    {
+        @include material-shadow(6px, rgba(0,0,0,0.3));
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: $secondary-color;	 
+    }
+}
+

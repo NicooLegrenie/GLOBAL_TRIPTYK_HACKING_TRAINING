@@ -1,0 +1,147 @@
+.table{
+    position: relative;
+    @include table();
+    @include material-shadow($blur, $shadow-color);
+    h3{
+        background:$base-color;
+        margin:0;
+        padding:10px;
+        box-sizing: border-box;
+        @include title($title-white);
+    }
+    figure{
+        position: relative;
+        @include reset;
+       & > div {
+           position: relative;
+           max-height: 235px;
+           width:100%;
+           overflow: hidden;
+           padding-top:197px;
+           background:$secondary-color;
+            img{
+                position: absolute;
+                top:0;
+            }
+       }
+        figcaption{
+            min-height: 30px;
+            width: 100%;
+            z-index: $z-index;
+            background: #ffffff;
+            position: absolute;
+            bottom: 0;
+            font-size:10px;
+            padding:12px;
+            box-sizing: border-box;
+            span{
+                float: right;
+                font-size:16px;
+            }
+        }
+    }
+    > button{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        width: 100%;
+        @include reset;
+        border:0;
+        background:$secondary-color;
+        color: #ffffff;
+        transition: all 0.4s ease-in-out;
+        i{
+            font-size:48px;
+        }
+        &:hover{
+            background:$base-color;
+            transition: all 0.4s ease-in-out;
+        }
+    }
+    &.empty{
+        height: 244px;
+    }
+}
+.board-list{
+    h3{
+        background:$base-color;
+        margin:0;
+        padding:10px;
+        box-sizing: border-box;
+        @include title($title-white);
+    }
+}
+.table-list{
+    list-style:none;
+    @include reset;
+    padding:10px;
+    background:#ffffff;
+    @include material-shadow($blur, $shadow-color);
+
+    > li{
+        border: 1px solid #ddd;
+        position:relative;
+        padding:0;
+        margin-bottom:10px;
+        &:last-child {
+            margin-bottom:0;
+            border:0;
+            &> a{
+            @include material-link($link-color);
+            
+        }
+    }
+    }
+    .color-list{
+        background:red;
+        position:absolute;
+        left:0;
+        bottom:0;
+        right:0;
+        top:0;
+        z-index:1;
+    }
+    img{
+        position: relative;
+        z-index:2;
+        display: block;
+    }
+    .content-list {
+        position: relative;
+        z-index:1;
+        p{
+        padding:10px;
+        margin:0;
+        margin-left:15px;
+        background:#ffffff;
+        font-size:14px;
+        display: block;
+        color:$secondary-color;
+        }
+        .members{
+            border-top: 1px solid #ddd;
+            margin:0;
+            margin-left:15px;
+            padding:0;
+            background:#ffffff;
+            font-size:14px; 
+            li{
+                display: inline;
+            }
+            img{
+                max-height: 48px;
+                max-width: 48px;
+                display: block;
+            }
+        }
+        .attributes-list{
+            @extend .members;
+            padding:0px 10px;;
+            a{
+                color: #aaa;
+            }
+        }
+    }
+}

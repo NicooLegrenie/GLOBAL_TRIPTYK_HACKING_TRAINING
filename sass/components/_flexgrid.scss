@@ -1,0 +1,177 @@
+.list{
+    list-style: none;
+    padding:0;
+    & >li{
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+}
+
+.board-list{
+    @extend .list;
+    display:flex;
+    flex-wrap:wrap;
+    & >li{
+        @media screen and (min-width:768px){
+            width: 50%;
+        }
+        @media screen and (min-width:1024px){
+            width: 25%;
+        }
+    }
+}
+.team-list{
+    @extend .list;
+}
+.sidebar-left{
+    display: flex;
+    align-items: flex-start;
+    > *{
+        flex: 1 100%;
+            
+    }
+    aside{
+        order:1;
+        max-width: 360px;
+        width: 100%;
+        background:#ffffff;
+        padding:10px 20px 60px 20px;
+        padding-bottom:60px;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        max-height: 100%;
+        position: fixed;
+        @include scrollbar;
+    }
+    section{
+        order:2;
+        margin-left:400px;
+    }
+}
+
+.users-list{
+    list-style:none;
+    padding: 10px;
+    li{
+        padding:10px;
+        border-bottom:1px solid #ccc;
+        &:last-child{
+            border-bottom:0;
+        }
+    }
+}
+.users-items{
+    .user{
+        background:$secondary-color;
+        color:#ffffff;
+    }
+    display: flex;
+    align-items: flex-start;
+    >div{
+        flex: 1 100%;
+        >*{
+            display: inline-block;
+        }
+        h4{
+           margin:3px 10px; 
+           span{
+               text-transform: uppercase;
+           }
+           small{
+               color: #ccc;
+                font-weight: lighter;
+           }
+        }
+       
+    &:last-child{
+        display: flex;
+        justify-content: flex-end;
+
+            a{
+                @include material-button($button-color, $stat-color, $button-fsize);
+                line-height: 36px;
+                margin:5px 10px 0 0;
+
+            }
+        }
+    }
+}
+.statistic-page{
+
+    .content{
+        .content-item{
+        display: flex;
+            >div{
+                flex: 1 100%;
+            }
+        }
+    }
+}
+.table-stat{
+    padding:20px;
+    > div{
+        margin-top:20px;
+        border:1px solid #ccc;
+        border-bottom:0;
+        ul{
+            @include reset;
+            li{
+                display: flex;
+                >div{
+                    border-bottom:1px solid #ccc;
+                    border-left:1px solid #ccc;
+                    padding:3px 5px;
+                    box-sizing: border-box;
+                    flex:2;
+                    line-height: 28px;
+                &:first-child{
+                    border-left:0;
+                    flex:1;
+                    }
+                &:last-child{
+                    flex:1;
+                    }
+                }
+            &:first-child{
+                background: $base-color;
+                color: #fff;
+                }
+                .stat-time{
+
+                    padding:0 5px;
+                    position: relative;
+                    .time-bg{
+                        display: flex;
+                        div{
+
+                            flex:1 100%;
+                            border-right:1px solid #ccc;
+                            height: 36px;
+                            &:last-child{
+                                border:0;
+                            }
+                        }
+
+                    }
+                    .time-project{
+                        position: absolute;
+                        display: block;
+                        border:1px solid $base-color;
+                        height: 16px;
+                        top:10px;
+                        left:5px;
+                        right:5px;
+                        background:#fff;
+                        .progress{
+                            background:$base-color;
+                            width: 66.66%;
+                            height: 16px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+    }  
+}
